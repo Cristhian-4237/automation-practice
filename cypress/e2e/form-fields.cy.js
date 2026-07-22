@@ -7,6 +7,17 @@ describe('Practice Automation - Form Fields', () => {
     formPage.visit();
   });
 
+  it('should validate the page title and introductory content', () => {
+    // Arrange
+    const expectedTitle = 'Form Fields | Practice Automation';
+
+    // Act
+    formPage.assertPageTitle(expectedTitle).assertPageContent();
+
+    // Assert
+    cy.url().should('include', '/form-fields/');
+  });
+
   it('should fill the form controls with valid values', () => {
     // Arrange
     const name = 'Cypress QA';

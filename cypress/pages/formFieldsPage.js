@@ -24,6 +24,17 @@ class FormFieldsPage {
     return this;
   }
 
+  assertPageTitle(expectedTitle) {
+    cy.title().should('eq', expectedTitle);
+    return this;
+  }
+
+  assertPageContent() {
+    cy.get('h1').should('contain.text', 'Form Fields');
+    cy.contains('p', 'Filling out a web form is one of the most fundamental things to learn as you begin your automation journey.');
+    return this;
+  }
+
   typeName(name) {
     cy.get('#name-input').clear().type(name, { force: true });
     return this;
